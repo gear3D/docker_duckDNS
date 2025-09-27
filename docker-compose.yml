@@ -1,0 +1,7 @@
+version: "3.9"
+
+services:
+  duckdns-updater:
+    build: .
+    container_name: duckdns-updater
+    restart: unless-stopped
