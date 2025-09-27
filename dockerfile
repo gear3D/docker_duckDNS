@@ -1,13 +1,13 @@
 FROM alpine:latest
 
-# Install curl, cronie (better cron) and tini
 RUN apk add --no-cache curl cronie tini
 
-# Add crontab
+# Copy crontab and fix permissions
 COPY crontab.txt /etc/crontabs/root
+RUN chmod 0644 /etc/crontabs/root && chown root:root /etc/crontabs/root
 
-# tini becomes PID 1, so crond doesn’t complain
+# tini becomes PID 1
 ENTRYPOINT ["/sbin/tini", "--"]
 
-# Run crond in foreground, send logs to stderr
-CMD ["crond", "-n", "-s", "-x", "sch"]
+# Run cron in foreground
+CMD ["crond", "-n", "-s"]
