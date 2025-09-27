@@ -4,4 +4,7 @@ services:
   duckdns-updater:
     build: .
     container_name: duckdns-updater
+    environment:
+      DUCKDNS_DOMAIN: mydomain
+      DUCKDNS_TOKEN: abcd1234
     restart: unless-stopped
