@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 # Install curl and cron
-RUN apk add --no-cache curl dcron
+RUN apk add --no-cache curl cronie
 
 # Copy crontab
 COPY crontab.txt /etc/crontabs/root
