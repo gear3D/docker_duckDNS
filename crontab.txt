@@ -1,0 +1,2 @@
+# Update DuckDNS at 4:00 AM and 4:00 PM, output timestamped response to stdout
+0 4,16 * * * echo "$(date): $(curl -s "https://www.duckdns.org/update?domains=YOUR_DOMAIN&token=YOUR_TOKEN&ip=")"
