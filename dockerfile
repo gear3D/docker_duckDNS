@@ -1,5 +1,4 @@
 FROM alpine:latest
-
 RUN apk add --no-cache curl cronie tini
 
 COPY crontab.txt /etc/crontabs/root
