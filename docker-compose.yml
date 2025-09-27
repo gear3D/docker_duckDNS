@@ -3,8 +3,11 @@ version: "3.9"
 services:
   duckdns-updater:
     build: .
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
     container_name: duckdns-updater
     environment:
-      DUCKDNS_DOMAIN: mydomain
-      DUCKDNS_TOKEN: abcd1234
+      DUCKDNS_DOMAIN: DUCKDNS_DOMAIN
+      DUCKDNS_TOKEN: DUCKDNS_TOKEN
     restart: unless-stopped
